@@ -2,7 +2,7 @@
 
 A sleek, real-time currency converter application featuring a **Linear-style dark theme**, historical charts, and multi-currency support. Built with vanilla HTML, CSS, and JavaScript. Now fully installable as a PWA!
 
-![Currency Converter Screenshot](https://via.placeholder.com/800x400?text=Currency+Converter+Preview)
+![Currency Converter Screenshot](./sample.png)
 
 ## 🚀 Features
 
