@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Currency Converter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2250%22 fill=%22%235E6AD2%22/><text x=%2250%22 y=%2270%22 font-size=%2260%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22>$</text></svg>">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <div class="container">
+        <div class="converter-card">
+            <header>
+                <div class="logo-container">
+                    <div class="logo-icon">
+                        <i class="fa-solid fa-coins"></i>
+                    </div>
+                    <h1>Currency Converter</h1>
+                </div>
+                <p>Real-time exchange rates</p>
+            </header>
+
+            <form id="converter-form">
+                <div class="amount-group">
+                    <label for="amount">Amount</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-money-bill-wave"></i>
+                        <input type="number" id="amount" value="1" min="0" step="any" placeholder="Enter amount">
+                    </div>
+                </div>
+
+                <div class="currency-selection">
+                    <div class="currency-group">
+                        <label for="from-currency">From</label>
+                        <div class="select-wrapper">
+                            <img src="https://flagcdn.com/w40/us.png" alt="flag" id="from-flag" class="currency-flag">
+                            <select id="from-currency"></select>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                    </div>
+
+                    <div class="swap-btn-container">
+                        <button type="button" id="swap-btn" aria-label="Swap currencies">
+                            <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                        </button>
+                    </div>
+
+                    <div class="currency-group">
+                        <label for="to-currency">To</label>
+                        <div class="select-wrapper">
+                            <img src="https://flagcdn.com/w40/id.png" alt="flag" id="to-flag" class="currency-flag">
+                            <select id="to-currency"></select>
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-container">
+                    <p class="conversion-text">1 USD =</p>
+                    <h2 class="conversion-result">Loading...</h2>
+                    <p class="last-updated" id="last-updated"></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
