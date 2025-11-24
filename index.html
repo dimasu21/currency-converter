@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2250%22 fill=%22%235E6AD2%22/><text x=%2250%22 y=%2270%22 font-size=%2260%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22>$</text></svg>">
+    <link rel="manifest" href="manifest.json">
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -23,6 +24,9 @@
 
     <div class="container">
         <div class="converter-card">
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                <i class="fa-solid fa-sun"></i>
+            </button>
             <header>
                 <div class="logo-container">
                     <div class="logo-icon">
@@ -68,16 +72,36 @@
                     </div>
                 </div>
 
+                <div id="extra-currencies"></div>
+
+                <button type="button" id="add-currency-btn" class="secondary-btn">
+                    <i class="fa-solid fa-plus"></i> Add Currency
+                </button>
+
                 <div class="result-container">
                     <p class="conversion-text">1 USD =</p>
                     <h2 class="conversion-result">Loading...</h2>
                     <p class="last-updated" id="last-updated"></p>
                 </div>
+
+                <div class="chart-container" style="margin-top: 2rem; height: 200px;">
+                    <canvas id="rateChart"></canvas>
+                </div>
             </form>
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(reg => console.log('Service Worker registered'))
+                    .catch(err => console.log('Service Worker registration failed: ', err));
+            });
+        }
+    </script>
 </body>
 
 </html>
